@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Problem {
     private static final String[] questions = { "Python에서 변수를 선언하는 방법은?",
             "Python에서 리스트(List)의 특징은 무엇인가요?",
@@ -11,31 +13,57 @@ public class Problem {
     };
     private static final int[] scores = {10, 15, 10, 5};
     private static final int[] collectAnswers = {1,2,3,4};
+    private int id;
     private String question;
-    private String[] example;
+    private ArrayList<String> example;
     private int score;
     private int collectAnswer;
 
-    public Problem(int questionNum) {
-        this.question = questions[questionNum];
-        this.example = examples[questionNum];
-        this.score = scores[questionNum];
-        this.collectAnswer = collectAnswers[questionNum];
+    public Problem(int id, String question, ArrayList<String> example, int score, int collectAnswer) {
+        this.id = id;
+        this.question = question;
+        this.example = example;
+        this.score = score;
+        this.collectAnswer = collectAnswer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getQuestion() {
         return question;
     }
 
-    public String[] getExample() {
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public ArrayList<String> getExample() {
         return example;
+    }
+
+    public void setExample(ArrayList<String> example) {
+        this.example = example;
     }
 
     public int getScore() {
         return score;
     }
 
+    public void setScore(int score) {
+        this.score = score;
+    }
+
     public int getCollectAnswer() {
         return collectAnswer;
+    }
+
+    public void setCollectAnswer(int collectAnswer) {
+        this.collectAnswer = collectAnswer;
     }
 }

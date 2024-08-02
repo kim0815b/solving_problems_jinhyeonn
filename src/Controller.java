@@ -1,14 +1,12 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Controller {
     private Scanner sc = new Scanner(System.in);
-    private List<Problem> problems = new ArrayList<>();
+    private Map<Integer,Problem> problems = new HashMap<>();
     private static int scoreAmount;
     private int[] answerNums;
     public void run() {
-        Quiz();
+        initQuiz();
         for (int i = 0; i < problems.size(); i++) {
             show(i);
             answer(i);
@@ -16,11 +14,8 @@ public class Controller {
         finish();
     }
 
-    private void Quiz() {
-        for (int i = 0; i < 4; i++) {
-            problems.add(new Problem(i));
-        }
-        answerNums = new int[problems.size()];
+    private void initQuiz() {
+        problems.put(1,new Problem(1,"Python에서 변수를 선언하는 방법은?", new ArrayList<String>(){"var name", "name = value", "set name", "name == value"},))
     }
     private void show(int num) {
         Problem problem = problems.get(num);
